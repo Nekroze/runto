@@ -11,7 +11,7 @@ import (
 func main() {
 	runner := executor.Runner{
 		Command:   strings.Join(os.Args[1:], " "),
-		Exec:      executor.Call,
+		Exec:      executor.ExecuteToStdout,
 		Condition: executor.StopOnSuccess,
 	}
 	result := runner.Loop()
