@@ -9,6 +9,7 @@ type TimingStatistics struct {
 	Fastest time.Duration
 	Slowest time.Duration
 	Average time.Duration
+	Total   time.Duration
 	history []time.Duration
 }
 
@@ -17,12 +18,14 @@ func (t *TimingStatistics) String() string {
 		fmt.Sprintf("Fastest:\t%s", t.Fastest),
 		fmt.Sprintf("Slowest:\t%s", t.Slowest),
 		fmt.Sprintf("Average:\t%s", t.Average),
+		fmt.Sprintf("Total:\t%s", t.Total),
 	})
 }
 
 func (t *TimingStatistics) Record(in time.Duration) {
 	t.updateMinMax(in)
 	t.updateAverage(in)
+	t.Total += in
 }
 
 func (t *TimingStatistics) updateMinMax(in time.Duration) {
