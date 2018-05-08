@@ -1,7 +1,6 @@
 package main
 
 import (
-	"log"
 	"os"
 	"strings"
 
@@ -9,12 +8,9 @@ import (
 )
 
 func main() {
-	runner := executor.Runner{
+	os.Exit((&executor.Runner{
 		Command:   strings.Join(os.Args[1:], " "),
 		Exec:      executor.ExecuteToStdout,
 		Condition: executor.StopOnFailure,
-	}
-	result := runner.Loop()
-	log.Println("Done\n" + result.String())
-	os.Exit(result.LastExitCode)
+	}).LoopCLI())
 }

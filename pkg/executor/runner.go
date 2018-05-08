@@ -30,3 +30,10 @@ func (r *Runner) Loop() *RunnerResult {
 		}
 	}
 }
+
+// Executes Runner.Loop but prints output instead of reporting it and returns exit code.
+func (r *Runner) LoopCLI() int {
+	result := r.Loop()
+	log.Println("Done\n" + result.String())
+	return result.LastExitCode
+}
