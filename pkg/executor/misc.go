@@ -6,18 +6,6 @@ import (
 	"text/tabwriter"
 )
 
-// Takes a runner result and returns if the runner should stop or not.
-type RunnerStopCheck func(*RunnerResult) bool
-
-// Returns true (stop the runner) when the last command returned non 0 exit code.
-func StopOnFailure(result *RunnerResult) bool {
-	return result.LastExitCode != 0
-}
-
-func StopOnSuccess(result *RunnerResult) bool {
-	return result.LastExitCode == 0
-}
-
 type RunnerResult struct {
 	Command      string
 	Attempts     uint

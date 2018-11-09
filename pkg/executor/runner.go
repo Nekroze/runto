@@ -13,7 +13,7 @@ type Runner struct {
 }
 
 func (r *Runner) exec() {
-	log.Printf("%s iteration %d\n", os.Args[0], r.result.Attempts)
+	log.Printf("%s iteration %d\n", os.Args[0], r.result.Attempts+1)
 	result := r.Exec(r.Command)
 	r.result.Record(result)
 }

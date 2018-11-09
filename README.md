@@ -2,8 +2,10 @@
 
 Utility to rerun command until a desired outcome. Currently this provides the following binaries that can be executed on the command line:
 
-- `runtodeath`
-- `runtolife`
+- `runtodeath` keep iterating until the command fails
+- `runtolife` keep iterating until the command succeeds
+- `runtocancel` keeps iterating until you press CTRL+C
+- `runtocount` keeps iterating until it has reached `$RUNTOCOUNT` which defaults to `10`
 
 # Install
 
